@@ -1,0 +1,516 @@
+:root {
+  --navy: #16233f;
+  --navy-deep: #0e1830;
+  --paper: #f6f3ec;
+  --paper-raised: #fffdf8;
+  --ink: #24262b;
+  --ink-soft: #565b66;
+  --line: #d8d2c4;
+  --brass: #b8934a;
+  --brass-deep: #8f6f34;
+  --error: #a23b2e;
+  --success: #2f6b4f;
+
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  line-height: 1.12;
+  margin: 0;
+  color: var(--navy);
+}
+
+p {
+  margin: 0 0 1rem;
+  max-width: 62ch;
+}
+
+button {
+  font-family: var(--sans);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brass-deep);
+  outline-offset: 2px;
+}
+
+/* ---------- Layout shell ---------- */
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: var(--paper-raised);
+}
+
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 1.1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.brand-mark {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.01em;
+}
+
+.brand-sub {
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  border-left: 1px solid var(--line);
+  padding-left: 0.6rem;
+  letter-spacing: 0.03em;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.main-nav a:hover {
+  color: var(--navy);
+}
+
+.main-nav a.active {
+  color: var(--navy);
+  border-bottom-color: var(--brass);
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+}
+
+.nav-user button {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  padding: 0.4rem 0.8rem;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.nav-user button:hover {
+  border-color: var(--navy);
+}
+
+main {
+  flex: 1;
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: var(--paper-raised);
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  padding: 1.6rem 1.5rem;
+}
+
+.footer-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+/* ---------- Home page ---------- */
+
+.hero {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3.5rem;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 3rem;
+  align-items: end;
+}
+
+.hero-eyebrow {
+  font-size: 0.85rem;
+  color: var(--brass-deep);
+  margin-bottom: 1rem;
+  font-family: var(--serif);
+  font-style: italic;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  margin-bottom: 1.2rem;
+}
+
+.hero p.lede {
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+
+.hero-actions {
+  margin-top: 1.6rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.4rem;
+  border-radius: 3px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btn-primary {
+  background: var(--navy);
+  color: var(--paper-raised);
+}
+
+.btn-primary:hover {
+  background: var(--navy-deep);
+}
+
+.btn-outline {
+  border-color: var(--navy);
+  color: var(--navy);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--navy);
+  color: var(--paper-raised);
+}
+
+.hero-panel {
+  border: 1px solid var(--line);
+  background: var(--paper-raised);
+  padding: 1.5rem;
+}
+
+.hero-panel dt {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-top: 1rem;
+}
+
+.hero-panel dt:first-child {
+  margin-top: 0;
+}
+
+.hero-panel dd {
+  margin: 0.15rem 0 0;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--navy);
+}
+
+.section {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.section-head h2 {
+  font-size: 1.7rem;
+}
+
+.section-head .section-note {
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.course-card {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 1.4rem;
+}
+
+.course-code {
+  font-family: var(--serif);
+  color: var(--brass-deep);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.course-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+.course-card p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-bottom: 0;
+}
+
+.notice-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.notice-list li {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.notice-date {
+  font-family: var(--serif);
+  color: var(--ink-soft);
+  min-width: 90px;
+  font-size: 0.85rem;
+}
+
+.notice-title {
+  color: var(--ink);
+}
+
+/* ---------- Auth pages ---------- */
+
+.auth-wrap {
+  max-width: 460px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 4rem;
+}
+
+.auth-eyebrow {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--brass-deep);
+  font-size: 0.85rem;
+  margin-bottom: 0.6rem;
+}
+
+.auth-wrap h1 {
+  font-size: 2rem;
+  margin-bottom: 0.4rem;
+}
+
+.auth-sub {
+  color: var(--ink-soft);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.field {
+  margin-bottom: 1.25rem;
+}
+
+.field label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.4rem;
+}
+
+.field input {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--line);
+  background: var(--paper-raised);
+  border-radius: 3px;
+  font-size: 0.95rem;
+  color: var(--ink);
+  font-family: var(--sans);
+}
+
+.field input:focus {
+  border-color: var(--navy);
+}
+
+.form-actions {
+  margin-top: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.form-actions .btn {
+  border: none;
+}
+
+.form-note {
+  margin-top: 1.6rem;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.form-note a {
+  color: var(--navy);
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.alert {
+  padding: 0.75rem 1rem;
+  border-radius: 3px;
+  font-size: 0.88rem;
+  margin-bottom: 1.4rem;
+}
+
+.alert-error {
+  background: #f6e6e2;
+  color: var(--error);
+  border: 1px solid #e2b6a9;
+}
+
+.alert-success {
+  background: #e5efe8;
+  color: var(--success);
+  border: 1px solid #b7d3c0;
+}
+
+/* ---------- About page ---------- */
+
+.about-hero {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 1rem;
+}
+
+.about-hero h1 {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  margin-bottom: 1rem;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.stat {
+  border-top: 2px solid var(--brass);
+  padding-top: 0.6rem;
+}
+
+.stat strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 2rem;
+  color: var(--navy);
+}
+
+.stat span {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.faculty-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.15rem;
+}
+
+.faculty-role {
+  color: var(--brass-deep);
+  font-size: 0.82rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--serif);
+  font-style: italic;
+}
+
+.faculty-card p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .header-inner {
+    flex-wrap: wrap;
+  }
+  .main-nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
